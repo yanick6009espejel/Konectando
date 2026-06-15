@@ -1,306 +1,309 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio Konecta</title>
-<style>
-/* Estilos Globales */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    line-height: 1.6;
-    scroll-behavior: smooth; /* Desplazamiento suave entre secciones */
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konecta - Contacto</title>
+    <style>
+        :root {
+            --bg-color: #E8E2D5; /* Fondo Beige / Camel sutil */
+            --text-main: #2A2A2A;
+            --text-light: #6E6E6E;
+            
+            /* Márgenes de acento por especialista */
+            --color-waaza: #FFFFFF;
+            --color-linda: #D4A5A5;
+            --color-priscila: #E09F67;
+            --color-yanick: #063D3B; /* Verde Omicron Base */
+            --color-levi: #B74141;
+            --color-noe: #8A8A8A;
+        }
 
-/* Colores de Konecta (inspirados en las imágenes) */
-:root {
-    --color-cover: #d4e1f5; /* Azul muy claro de fondo */
-    --color-yanick: #1a6d71; /* Teal */
-    --color-noe: #888c8f; /* Grey */
-    --color-priscila: #c38489; /* Dusty Rose */
-    --color-linda: #b26a2e; /* Terracotta Orange */
-    --color-levi: #8e2b3f; /* Burgundy Wine */
-    --color-waaza: #f0f0f0; /* White/Light Grey */
-    --color-text-on-dark: #fff;
-    --color-text-on-light: #333;
-}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
 
-/* Contenedor principal de 'páginas' */
-.portfolio-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 50px 20px;
+            box-sizing: border-box;
+        }
 
-/* Estilo de cada 'página' / sección */
-.portfolio-page {
-    min-height: 100vh; /* Cada página ocupa el alto de la pantalla */
-    padding: 40px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centrar contenido verticalmente */
-}
+        h1 {
+            font-size: 26px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-/* Títulos */
-h1 { font-size: 3em; margin-bottom: 10px; }
-h2 { font-size: 2.2em; margin-top: 30px; margin-bottom: 15px; text-align: center;}
-h3 { font-size: 1.5em; margin-top: 20px; margin-bottom: 5px; color: #555;}
+        .selector-wrapper {
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-/* Párrafos */
-p { font-size: 1.1em; margin-bottom: 20px; }
-.subtitle { font-style: italic; color: #777; font-size: 1.2em; margin-bottom: 30px; text-align: center; }
+        select {
+            width: 100%;
+            padding: 14px;
+            font-size: 14px;
+            color: var(--text-main);
+            border: 1px solid #C8C2B5;
+            background-color: rgba(255, 255, 255, 0.4);
+            appearance: none;
+            cursor: pointer;
+            outline: none;
+            text-align: center;
+            letter-spacing: 1px;
+        }
 
-/* Estilos Específicos */
+        .profile-section {
+            display: none;
+            margin-bottom: 30px;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
 
-/* Página 1: PORTADA */
-.page-cover {
-    background-color: var(--color-cover);
-    text-align: center;
-}
-.page-cover h1 { color: #2a3f5f; }
-.page-cover .logo-placeholder { font-size: 4em; color: #2a3f5f; margin-bottom: 20px; } /* Simulación de logo */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-/* Página 2: QUIÉNES SOMOS (Equipo) */
-.page-about-team {
-    background-color: #f9f9f9;
-}
-.team-intro { text-align: center; max-width: 800px; margin: 0 auto; }
+        .bio-block {
+            padding-left: 20px;
+            margin-bottom: 35px;
+            border-left: 4px solid transparent;
+        }
 
-/* Grid de Miembros del Equipo */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
+        .bio-block h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+        }
 
-.team-member {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    text-align: center;
-    border-top: 5px solid; /* Borde de color para cada uno */
-    transition: transform 0.3s ease;
-}
-.team-member:hover { transform: translateY(-5px); }
-.team-member img {
-    max-width: 150px;
-    height: auto;
-    border-radius: 50%; /* Imagen circular */
-    margin-bottom: 15px;
-}
-.team-member h3 { margin-top: 10px; }
-.team-member p.role { font-weight: bold; margin-bottom: 10px; }
-.team-member p.bio { font-size: 0.95em; color: #666; text-align: left; }
+        .bio-block h3 {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-light);
+            margin: 0 0 20px 0;
+        }
 
-/* Colores de borde para cada miembro */
-.yanick { border-top-color: var(--color-yanick); }
-.noe { border-top-color: var(--color-noe); }
-.priscila { border-top-color: var(--color-priscila); }
-.linda { border-top-color: var(--color-linda); }
-.levi { border-top-color: var(--color-levi); }
-.waaza { border-top-color: var(--color-noe); } /* El Waaza usa gris por simplicidad */
-.supernova { border-top-color: #2a3f5f; } /* Supernova usa azul de portada */
+        .bio-block p {
+            font-size: 14px;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
 
-/* Página 3: ENLACE Y STAFF */
-.page-staff {
-    background-color: #fff;
-    text-align: center;
-}
-.supernova-detail {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 20px;
-    background: #f1f6ff;
-    border-radius: 8px;
-}
-.supernova-detail p { font-weight: bold; }
+        /* Modificadores de bordes */
+        .border-waaza { border-left-color: var(--color-waaza); }
+        .border-linda { border-left-color: var(--color-linda); }
+        .border-priscila { border-left-color: var(--color-priscila); }
+        .border-yanick { border-left-color: var(--color-yanick); }
+        .border-levi { border-left-color: var(--color-levi); }
+        .border-noe { border-left-color: var(--color-noe); }
 
-/* Página 4: CONTACTO */
-.page-contact {
-    background-color: #fff;
-    text-align: center;
-}
-.contact-info {
-    font-size: 1.2em;
-    margin-top: 30px;
-}
-.contact-info p { margin-bottom: 15px; }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-/* Navegación Sencilla */
-.nav-dots {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.nav-dots a {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ccc;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-.nav-dots a:hover, .nav-dots a.active {
-    background-color: #2a3f5f;
-}
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #C8C2B5;
+            background: rgba(255, 255, 255, 0.5);
+            font-family: inherit;
+            font-size: 13px;
+            box-sizing: border-box;
+            outline: none;
+        }
 
-</style>
+        input:focus, textarea:focus {
+            border-color: var(--text-main);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            width: 100%;
+            background-color: #2C2A29;
+            color: #FFFFFF;
+            padding: 15px;
+            border: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #1A1918;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() { emailjs.init("z7UKWFlgvcMOGPNBO"); })();
+
+        function showProfile(id) {
+            const profiles = document.querySelectorAll('.profile-section');
+            profiles.forEach(p => p.style.display = 'none');
+            
+            if(id) {
+                const activeProfile = document.getElementById(id);
+                if(activeProfile) activeProfile.style.display = 'block';
+            }
+        }
+
+        window.onload = function() {
+            const forms = document.querySelectorAll('.contact-form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const btn = form.querySelector('button');
+                    btn.textContent = 'Enviando...';
+                    btn.disabled = true;
+                    
+                    emailjs.sendForm('service_avzt25n', 'template_d54jvr8', this)
+                        .then(() => { 
+                            alert('Mensaje enviado exitosamente.'); 
+                            form.reset();
+                            btn.textContent = 'Enviar Mensaje';
+                            btn.disabled = false;
+                        }, (error) => { 
+                            alert('Error al enviar: ' + JSON.stringify(error)); 
+                            btn.textContent = 'Enviar Mensaje';
+                            btn.disabled = false;
+                        });
+                });
+            });
+        }
+    </script>
 </head>
 <body>
-
-<!-- Navegación de puntos fija -->
-<div class="nav-dots">
-<a href="#cover" class="active" title="Portada"></a>
-<a href="#about-team" title="Quiénes Somos"></a>
-<a href="#staff" title="Enlace y Staff"></a>
-<a href="#contact" title="Contacto"></a>
-</div>
-
-<div class="portfolio-container">
-
-<!-- PÁGINA 1: PORTADA -->
-<section id="cover" class="portfolio-page page-cover">
-    <div class="logo-placeholder">K</div> <!-- Simulación de logo -->
-    <h1>Konecta</h1>
-    <p class="subtitle">Acompañamiento, Sanación y Claridad Existencial</p>
-    <p>Un equipo multidisciplinario dedicado a tu bienestar integral.</p>
-    <a href="#about-team" style="text-decoration: none; color: #2a3f5f; font-weight: bold; border: 2px solid #2a3f5f; padding: 10px 20px; border-radius: 5px; margin-top: 20px; display: inline-block;">Conocer al Equipo</a>
-</section>
-
-<!-- PÁGINA 2: QUIÉNES SOMOS (Individual y Equipo) -->
-<section id="about-team" class="portfolio-page page-about-team">
-    <h2>Quiénes Somos</h2>
-    <p class="subtitle">Conoce a los profesionales de Konecta</p>
-
-    <div class="team-grid">
-
-        <!-- Yanick -->
-        <div class="team-member yanick">
-            <img src="image_2.png" alt="Yanick">
-            <h3>Yanick</h3>
-            <p class="role">Neurobiología y Optimización Conductual</p>
-            <p class="bio">Arquitecto del sistema clínico, centrado en la funcionalidad neuropsicológica y la intervención directa sobre la química cerebral.</p>
+    <div class="container">
+        <h1>Konecta</h1>
+        
+        <div class="selector-wrapper">
+            <select id="index-selector" onchange="showProfile(this.value)">
+                <option value="" selected disabled>Selecciona un especialista de la lista</option>
+                <option value="profile-levi">Levi</option>
+                <option value="profile-linda">Linda</option>
+                <option value="profile-noe">Noé</option>
+                <option value="profile-priscila">Priscila</option>
+                <option value="profile-waaza">Waaza</option>
+                <option value="profile-yanick">Yanick</option>
+            </select>
         </div>
 
-        <!-- Noé -->
-        <div class="team-member noe">
-            <img src="image_5.png" alt="Noé">
-            <h3>Noé</h3>
-            <p class="role">Medicina Tradicional y Chamanismo</p>
-            <p class="bio">Atención a la dimensión espiritual. Aborda lo que trasciende la ciencia convencional con rigor diagnóstico psicosocial.</p>
+        <div id="profile-levi" class="profile-section">
+            <div class="bio-block border-levi">
+                <h2>Levi</h2>
+                <h3>Especialista en procesos de sanación integral y encuentro personal.</h3>
+                <p>Levi es el profesional dedicado a facilitar el retorno del individuo hacia su esencia, enfocándose en la sanación emocional y la reconexión consigo mismo. Su labor en Konecta consiste en guiar al usuario a través de un camino de paz, empatía y amor propio, permitiendo que la persona alcance un estado de tranquilidad profunda y autodescubrimiento.</p>
+                <p>Mediante una metodología altamente personalizada y adaptativa, Levi crea procesos únicos que responden a las necesidades específicas de cada caso, evitando estructuras rígidas para ajustarse a cada historia. Su intervención es altamente efectiva con quienes mantienen fe y confianza en su evolución, centrando su práctica profesional en aquellos individuos que poseen un deseo genuino y comprometido por sanar.</p>
+            </div>
+            <form class="contact-form">
+                <input type="hidden" name="to_email" value="Levitandotuluz@gmail.com">
+                <input type="hidden" name="to_name" value="Levi">
+                <div class="form-group"><input type="text" name="user_name" placeholder="Tu nombre" required></div>
+                <div class="form-group"><input type="email" name="user_email" placeholder="Tu correo electrónico" required></div>
+                <div class="form-group"><textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea></div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
 
-        <!-- Priscila -->
-        <div class="team-member priscila">
-            <img src="image_0.png" alt="Priscila">
-            <h3>Priscila</h3>
-            <p class="role">Acompañamiento y Claridad Existencial</p>
-            <p class="bio">Dedicada a proporcionar tranquilidad y entendimiento profundo sobre los procesos de vida, adaptando metodologías espirituales o científicas.</p>
+        <div id="profile-linda" class="profile-section">
+            <div class="bio-block border-linda">
+                <h2>Linda</h2>
+                <h3>Especialista en reestructuración psicoespiritual.</h3>
+                <p>Linda es la pieza estratégica en Konecta dedicada a la transformación estructural del individuo. Su metodología integra el plano psicoespiritual con la acción inmediata para desmantelar dependencias y heridas de la infancia, convirtiendo patrones limitantes en herramientas de autonomía.</p>
+                <p>Con un enfoque técnico, dinámico y altamente exigente, facilita la resignificación profunda mediante visualizaciones creativas y dinámicas de cambio. Linda requiere compromiso absoluto y disciplina del usuario, garantizando un acompañamiento técnico orientado a resultados tangibles hasta lograr una autogestión total. Su intervención es el puente preciso hacia una vida funcional y soberana.</p>
+            </div>
+            <form class="contact-form">
+                <input type="hidden" name="to_email" value="linda.perez.l31974@humanitas.edu.mx">
+                <input type="hidden" name="to_name" value="Linda">
+                <div class="form-group"><input type="text" name="user_name" placeholder="Tu nombre" required></div>
+                <div class="form-group"><input type="email" name="user_email" placeholder="Tu correo electrónico" required></div>
+                <div class="form-group"><textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea></div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
 
-        <!-- Linda -->
-        <div class="team-member linda">
-            <img src="image_4.png" alt="Linda">
-            <h3>Linda</h3>
-            <p class="role">Reestructuración Psicoespiritual</p>
-            <p class="bio">Transformación estructural del individuo para desmantelar dependencias y heridas de la infancia, exigiendo compromiso absoluto.</p>
+        <div id="profile-noe" class="profile-section">
+            <div class="bio-block border-noe">
+                <h2>Noé</h2>
+                <h3>Especialista en Medicina Tradicional y Chamanismo.</h3>
+                <p>Noé es el profesional dedicado a la atención de la dimensión espiritual, abordando con precisión aquello que trasciende la explicación científica convencional. Su labor en Konecta consiste en proporcionar una perspectiva integral que permita al usuario alcanzar sus propias respuestas mediante una metodología basada en la "otra ciencia".</p>
+                <p>Su servicio inicia con un riguroso diagnóstico psicosocial, diseñado para descartar eventos traumáticos y conductas de autodaño antes de intervenir en el ámbito espiritual. Noé facilita una alternativa profunda y transformadora para quienes buscan soluciones más allá de lo unconventional, trabajando exclusivamente con usuarios cuya disposición mental y apertura permiten la eficacia de sus intervenciones, excluyendo perfiles marcados por el prejuicio o la actitud autodestructiva.</p>
+            </div>
+            <form class="contact-form">
+                <input type="hidden" name="to_email" value="noecampos@comunidad.unam.mx">
+                <input type="hidden" name="to_name" value="Noé">
+                <div class="form-group"><input type="text" name="user_name" placeholder="Tu nombre" required></div>
+                <div class="form-group"><input type="email" name="user_email" placeholder="Tu correo electrónico" required></div>
+                <div class="form-group"><textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea></div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
 
-        <!-- Levi -->
-        <div class="team-member levi">
-            <img src="image_3.png" alt="Levi">
-            <h3>Levi</h3>
-            <p class="role">Sanación Integral y Encuentro Personal</p>
-            <p class="bio">Facilita el retorno del individuo hacia su esencia, enfocándose en la sanación emocional y el amor propio con un enfoque personalizado.</p>
+        <div id="profile-priscila" class="profile-section">
+            <div class="bio-block border-priscila">
+                <h2>Priscila</h2>
+                <h3>Especialista en procesos de acompañamiento y clarificación existencial.</h3>
+                <p>Priscila es la profesional de Konecta dedicada a proporcionar al usuario un estado de tranquilidad, paz y un entendimiento profundo sobre sus procesos de vida. Su labor se centra en la facilitación de soluciones personales, partiendo de una escucha activa sobre el tema que el usuario desea abordar para determinar, de manera precisa, la metodología más adecuada —ya sea de corte espiritual o científico— según las necesidades particulares de cada individuo.</p>
+                <p>Su enfoque destaca por la adaptabilidad y la personalización total de cada proceso, asegurando que la strategy aplicada responda fielmente a la singularidad de quien busca ayuda. Priscila mantiene un encuadre profesional riguroso, trabajando con todo tipo de consultantes, a excepción de menores de edad y personas bajo el consumo de sustancias tóxicas, generando así un entorno de trabajo seguro, consciente y comprometido con la claridad existencial.</p>
+            </div>
+            <form class="contact-form">
+                <input type="hidden" name="to_email" value="Priscilla.carvajal.rodriguez@gmail.com">
+                <input type="hidden" name="to_name" value="Priscila">
+                <div class="form-group"><input type="text" name="user_name" placeholder="Tu nombre" required></div>
+                <div class="form-group"><input type="email" name="user_email" placeholder="Tu correo electrónico" required></div>
+                <div class="form-group"><textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea></div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
 
-        <!-- El Waaza -->
-        <div class="team-member waaza">
-            <img src="image_1.png" alt="El Waaza">
-            <h3>El Waaza</h3>
-            <p class="role">Intervención Estratégica y Cambio Humano</p>
-            <p class="bio">Articulador táctico que descifra si el propósito de la consulta es la escucha, orientación o reestructuración profunda.</p>
+        <div id="profile-waaza" class="profile-section">
+            <div class="bio-block border-waaza">
+                <h2>Waaza</h2>
+                <h3>Especialista en intervención estratégica y facilitación del cambio humano.</h3>
+                <p>Waaza es el articulador táctico dentro de Konecta, experto en la lectura y clasificación de las necesidades profundas del usuario. Su labor consiste en descifrar si el propósito de la consulta es la escucha, la orientación o la reestructuración profunda, aplicando un sistema de intervención que prioriza la entrega de herramientas precisas antes de establecer el modelo terapéutico a seguir.</p>
+                <p>Su metodología se caracteriza por la adaptabilidad y el análisis de la dinámica entre el profesional y el consultante, garantizando que el proceso sea coherent, eficiente y totalmente enfocado en resultados funcionales. Waaza mantiene un enfoque inclusivo y abierto, donde la clave del éxito reside en la correcta sincronización entre la necesidad detectada y la estrategia técnica aplicada.</p>
+            </div>
+            <form class="contact-form">
+                <input type="hidden" name="to_email" value="alfvalort@gmail.com">
+                <input type="hidden" name="to_name" value="Waaza">
+                <div class="form-group"><input type="text" name="user_name" placeholder="Tu nombre" required></div>
+                <div class="form-group"><input type="email" name="user_email" placeholder="Tu correo electrónico" required></div>
+                <div class="form-group"><textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea></div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+
+        <div id="profile-yanick" class="profile-section">
+            <div class="bio-block border-yanick">
+                <h2>Yanick</h2>
+                <h3>Especialista en neurobiología y optimización conductual.</h3>
+                <p>Yanick es el arquitecto del sistema clínico en Konecta, centrado en la funcionalidad neuropsicológica y la optimización del ser humano. Su labor consiste en la intervención directa sobre la química cerebral y la depuración de hábitos y conductas disfuncionales, logrando resultados inmediatos en la neuroregulación del bienestar, el restablecimiento de los ciclos de sueño y la atenuación del vacío existencial.</p>
+                <p>Su metodología integra técnicas terapéuticas de alta precisión como hipnosis, EMDR, terapia dialéctica transpersonal y Gestalt, iniciando siempre con una valoración técnica rigurosa para seleccionar el plan de trabajo a medida. Yanick trabaja con individuos que presentan conductas cíclicas o conflictivas que limitan su plenitud, ofreciendo un sistema sólido y científico para transformar el desajuste interno en una vida optimizada, soberana y funcional.</p>
+            </div>
+            <form class="contact-form">
+                <input type="hidden" name="to_email" value="Yanick608@gmail.com">
+                <input type="hidden" name="to_name" value="Yanick">
+                <div class="form-group"><input type="text" name="user_name" placeholder="Tu nombre" required></div>
+                <div class="form-group"><input type="email" name="user_email" placeholder="Tu correo electrónico" required></div>
+                <div class="form-group"><textarea name="message" rows="4" placeholder="Tu mensaje" required></textarea></div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
 
     </div>
-</section>
-
-<!-- PÁGINA 3: ENLACE Y STAFF -->
-<section id="staff" class="portfolio-page page-staff">
-    <h2>Enlace y Staff del Equipo</h2>
-    <p class="subtitle">La fuerza operativa detrás de Konecta</p>
-    
-    <p>En Konecta, la eficiencia operativa y la coordinación son fundamentales. Para garantizar la fluidez de nuestros eventos y la conexión directa entre el equipo y el público, contamos con roles de enlace especializados.</p>
-
-    <div class="supernova-detail">
-        <img src="image_6.png" alt="Supernova" style="max-width: 150px; border-radius: 50%; margin-bottom: 20px;">
-        <h3>super.nova</h3>
-        <p>Nuestro enlace vital para eventos.</p>
-        <p style="color: #555; font-weight: normal; max-width: 500px; margin: 0 auto;">Coordinador clave que asegura el éxito de cada intervención. super.nova es responsable de la conducción, locación y el enlace para eventos de Konecta.</p>
-    </div>
-
-    <p style="margin-top: 30px;">Nuestro equipo de staff trabaja incansablemente para que los profesionales puedan centrarse en lo más importante: <strong>tú</strong>.</p>
-</section>
-
-<!-- PÁGINA 4: CONTRA-PORTADA Y CONTACTO -->
-<section id="contact" class="portfolio-page page-contact">
-    <h2>Konecta</h2>
-    <p class="subtitle">Estamos listos para escucharte</p>
-    
-    <p>Si sientes que es el momento de iniciar tu proceso de sanación, optimización o búsqueda de claridad, nuestro equipo multidisciplinario está aquí para acompañarte. Cada historia es única, y nuestra respuesta también lo será.</p>
-
-    <div class="contact-info">
-        <h3>Contacta con nosotros</h3>
-        <p><strong>Teléfono/WhatsApp:</strong> +XX XXX XXX XXXX</p>
-        <p><strong>Email:</strong> info@konecta-bienestar.com</p>
-        <p><strong>Dirección (Atención Presencial):</strong> Calle Armonía #123, Ciudad de México.</p>
-        <p><strong>Encuéntranos en Redes:</strong> @KonectaBienestar</p>
-    </div>
-
-    <p style="margin-top: 50px; font-size: 0.9em; color: #999;">© 2023 Konecta - Todos los derechos reservados.<br>
-    Un enfoque integral para la vida funcional.</p>
-</section>
-
-</div>
-
-<script>
-// Script sencillo para marcar el punto de navegación activo
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('.portfolio-page');
-    const navDots = document.querySelectorAll('.nav-dots a');
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navDots.forEach(dot => {
-        dot.classList.remove('active');
-        if (dot.getAttribute('href') === `#${current}`) {
-            dot.classList.add('active');
-        }
-    });
-});
-</script>
-
 </body>
 </html>
-# Konectando
